@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        h1,
+        h4 {
+            text-align: center;
+        }
+        nav{
+            display: flex;
+            justify-content: center;
+        }
+        nav>a{
+            margin: 5px 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        blockquote{
+            border: 1px solid black;
+        }
+        pre{
+            background-color: #4e4e4e;
+            border: 5px solid rgb(255, 255, 255);
+            border-style: dashed;
+        }
+        code{
+            color: white;
+        }
+        img{
+            width: 300px;
+        }
+    </style>
+    <title>Práctica de Rutas</title>
+</head>
+
+<body>
+    <header>
+        <h1>Práctica de rutas - Directorio de Citas</h1>
+        <h4>Jorge Eduardo Escobar Bugarini - Programacion Web - 10-11 - ISC - 21550317</h4>
+    </header>
+    <br>
+    <hr>
+    <h4>Barra de navegación</h4>
+    <nav>        
+        <a href="/">
+            Página principal (Home)
+        </a>
+        <a href="/tema1/paginauno.html">
+            Ir a página 1
+        </a>
+        <a href="/tema2/paginados.html">
+            Ir a página 2
+        </a>
+        <a href="/tema1/subtema11/citas.html">
+            Ir a directorio de citas
+        </a>
+    </nav>
+    <hr><br>
+    <section style="text-align: center;">
+        <h3>Conjunto de citas</h3>
+        <blockquote>
+            <p>La educación es el arma más poderosa que puedes usar para cambiar el mundo.</p>
+            <cite>Nelson Mandela</cite>
+        </blockquote>
+        <pre>
+            <code>
+                function saludar() {
+                    alert('¡Hola, mundo!');
+                }
+            </code>
+        </pre>
+        <blockquote>
+            <p>El arte es la expresión de los más profundos pensamientos por el camino más sencillo.</p>
+            <cite>Albert Einstein</cite>
+        </blockquote>
+        <blockquote>
+            <p>La información es la moneda del siglo XXI.</p>
+            <cite><a href="https://www.linkedin.com/in/denissenajera/">Denis S. Nájera</a></cite>
+        </blockquote>
+        <blockquote>
+            <p>Tengo un sueño de que un día esta nación se levantará y vivirá el verdadero significado de su credo.</p>
+            <cite>Martin Luther King Jr.</cite>
+        </blockquote>
+        <img src="/multimedia/imagenes/perrito.png" alt="">
+    </section>
+    <footer>
+        <h6>Esta pagina tiene ruta con raiz</h6>
+    </footer>
+</body>
+
+</html>

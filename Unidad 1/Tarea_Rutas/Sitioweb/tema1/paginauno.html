@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        h1,
+        h4 {
+            text-align: center;
+        }
+        nav{
+            display: flex;
+            justify-content: center;
+        }
+        nav>a{
+            margin: 5px 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        img{
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 10px;
+        }
+    </style>
+    <title>Práctica de Rutas</title>
+</head>
+
+<body>
+    <header>
+        <h1>Práctica de rutas - Página uno</h1>
+        <h4>Jorge Eduardo Escobar Bugarini - Programacion Web - 10-11 - ISC - 21550317</h4>
+    </header>
+    <br>
+    <hr>
+    <h4>Barra de navegación</h4>
+    <nav>        
+        <a href="/">
+            Página principal (Home)
+        </a>
+        <a href="/tema1/paginauno.html">
+            Ir a página 1
+        </a>
+        <a href="/tema2/paginados.html">
+            Ir a página 2
+        </a>
+        <a href="/tema1/subtema11/citas.html">
+            Ir a directorio de citas
+        </a>
+    </nav>
+    <hr><br>
+    <section>
+        <h4>Imagenes con distintas rutas</h4>
+
+        <div style="text-align: center;">
+            <img src="../multimedia/imagenes/club-penguin-ghosthy.gif" alt="Imagen 2">
+        </div>
+        <p>Las imagenes pueden tener multiples formatos como:</p>
+        <ul>
+            <li>webp</li>
+            <li>jpg/jpeg</li>
+            <li>png</li>
+            <li>gif</li>
+            <li>svg</li>
+            <li>bmp</li>
+        </ul>
+    </section>
+    <footer>
+        <h6>Esta pagina tiene ruta relativa</h6>
+    </footer>
+</body>
+
+</html>

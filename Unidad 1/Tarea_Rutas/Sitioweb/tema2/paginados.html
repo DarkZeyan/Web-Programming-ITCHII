@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        h1,
+        h4 {
+            text-align: center;
+        }
+        nav{
+            display: flex;
+            justify-content: center;
+        }
+        nav>a{
+            margin: 5px 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        table, tbody,thead, th,td{
+            text-align: center;
+            border: 2px solid cyan;
+            border-style: dashed;
+        }
+        img{
+            width: 250px;
+        }
+    </style>
+    <title>Práctica de Rutas</title>
+</head>
+
+<body>
+    <header>
+        <h1>Práctica de rutas - Página dos</h1>
+        <h4>Jorge Eduardo Escobar Bugarini - Programacion Web - 10-11 - ISC - 21550317</h4>
+    </header>
+    <br>
+    <hr>
+    <h4>Barra de navegación</h4>
+    <nav>        
+        <a href="/">
+            Página principal (Home)
+        </a>
+        <a href="/tema1/paginauno.html">
+            Ir a página 1
+        </a>
+        <a href="/tema2/paginados.html">
+            Ir a página 2
+        </a>
+        <a href="/tema1/subtema11/citas.html">
+            Ir a directorio de citas
+        </a>
+    </nav>
+    <hr><br>
+    <section>
+        <div style="display: flex; justify-content: center;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Estado</th>
+                    <th>Capital</th>
+                    <th>Población</th>
+                    <th>Superficie (km²)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jalisco</td>
+                    <td>Guadalajara</td>
+                    <td>8,348,151</td>
+                    <td>78,599</td>
+                </tr>
+                <tr>
+                    <td>Estado de México</td>
+                    <td>Toluca</td>
+                    <td>16,992,418</td>
+                    <td>22,499</td>
+                </tr>
+                <tr>
+                    <td>Veracruz</td>
+                    <td>Xalapa</td>
+                    <td>8,112,505</td>
+                    <td>71,820</td>
+                </tr>
+                <tr>
+                    <td>Chiapas</td>
+                    <td>Tuxtla Gutiérrez</td>
+                    <td>5,543,828</td>
+                    <td>73,211</td>
+                </tr>
+                <tr>
+                    <td>Chihuahua</td>
+                    <td>Chihuahua</td>
+                    <td>3,801,962</td>
+                    <td>247,455</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <img src="http://localhost:5500/multimedia/imagenes/logo-autobots.png" alt="">
+        </div>
+    </section>
+    <footer>
+        <h6>Esta pagina tiene ruta absoluta, cambiar el protocolo de  localhost si es necesario</h6>
+    </footer>
+</body>
+
+</html>

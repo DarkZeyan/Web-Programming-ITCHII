@@ -1,21 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        *{
+        * {
             font-family: sans-serif;
         }
-        h1{
+
+        h1,
+        h4 {
             text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav>a {
+            margin: 5px 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        aside {
+            margin: 0 1rem;
+            display: inline-block;
+
+            flex-direction: column;
+            border: 1px solid blue;
+            border-style: dashed;
+            width: fit-content;
+            padding: 30px;
+
+        }
+
+        section {
+            margin: 0 1rem;
+
+            display: inline-block;
+            border: 3px solid red;
+            border-style: dashed;
+            width: 60%;
+            padding: 10px;
         }
     </style>
     <title>Práctica de Rutas</title>
 </head>
+
 <body>
     <header>
         <h1>Práctica de rutas</h1>
+        <h4>Jorge Eduardo Escobar Bugarini - Programacion Web - 10-11 - ISC - 21550317</h4>
     </header>
+    <br>
+    <hr>
+    <h4>Barra de navegación</h4>
+    <nav>
+        <a href="/">
+            Página principal (Home)
+        </a>
+        <a href="/tema1/paginauno.html">
+            Ir a página 1
+        </a>
+        <a href="/tema2/paginados.html">
+            Ir a página 2
+        </a>
+        <a href="/tema1/subtema11/citas.html">
+            Ir a directorio de citas
+        </a>
+    </nav>
+    <hr><br>
+
+    <aside>
+        <p>Este es un elemento aside</p>
+        <p><i>Este elemento permite visualizar texto en un lado</i></p>
+        <p><b>Lorem ipsum dolor sit amet consectetur adipisicing elit.</b></p>
+        <p><u>Lorem ipsum dolor sit amet consectetur adipisicing elit.</u></p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </aside>
+    <section>
+        <h4>Elemento section</h4>
+        <p>Como se puede visualizar, el contenido de la pagina normalmente esta de manera horizontal sin problemas</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quis aperiam perferendis similique fugit
+            inventore omnis dolore neque, molestiae laboriosam laborum nulla sint possimus deleniti non debitis placeat
+            eaque dolorem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quis aperiam perferendis similique fugit
+            inventore omnis dolore neque, molestiae laboriosam laborum nulla sint possimus deleniti non debitis placeat
+            eaque dolorem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quis aperiam perferendis similique fugit
+            inventore omnis dolore neque, molestiae laboriosam laborum nulla sint possimus deleniti non debitis placeat
+            eaque dolorem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quis aperiam perferendis similique fugit
+            inventore omnis dolore neque, molestiae laboriosam laborum nulla sint possimus deleniti non debitis placeat
+            eaque dolorem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quis aperiam perferendis similique fugit
+            inventore omnis dolore neque, molestiae laboriosam laborum nulla sint possimus deleniti non debitis placeat
+            eaque dolorem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quis aperiam perferendis similique fugit
+            inventore omnis dolore neque, molestiae laboriosam laborum nulla sint possimus deleniti non debitis placeat
+            eaque dolorem.</p>
+        
+        <img src="./Multimedia/Imagenes/dinossauro-dance.gif" alt="Imagen uno">
+    </section>
+    <footer>
+        <h2>Footer de la pagina</h2>
+        <h6>Esta pagina tiene ruta con raiz</h6>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit amet delectus est voluptas veniam accusamus
+            repellat sit rem harum libero similique sint corrupti vero, asperiores totam hic et nisi corporis.</p>
+    </footer>
 </body>
+
 </html>
