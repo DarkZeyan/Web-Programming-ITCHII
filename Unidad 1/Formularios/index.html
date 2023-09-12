@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+
+<body>
+    <header>
+        <h1>Formulario generico</h1>
+    </header>
+    <nav>
+        <h2>Barra de navegacion</h2>
+    </nav>
+    <section>
+        <h2>Titulo del formulario</h2>
+        <form id="datos" name="datos" method="get" action="procesar.html" 
+        autocomplete="off"
+        enctype="application/x-www-form-urlencoded">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" size="50" minlength="10" maxlength="20"
+                placeholder="Introduce tu nombre">
+            <br>
+            <hr>
+            <label for="pass">Contraseña</label>
+            <input type="password" id="pass" name="pass" placeholder="Introduce una Contraseña">
+
+            <br>
+            <hr>
+            <label for="carrera"></label>
+            <input type="radio" name="carrera" checked id="isc"><label for="isc">Ing. Sistemas Computacionales</label>
+            <input type="radio" name="carrera" id="iinf"><label for="iinf">Ing. Informatica</label>
+            <input type="radio" name="carrera" id="ii"><label for="ii">Ing. Industrial</label>
+            <input type="radio" name="carrera" id="aqr"><label for="aqr">Arquitectura</label>
+
+            <br>
+            <hr>
+            <section>
+                <h2>Hobbies</h2>
+                <label for="pasatiempo favorito"></label>
+                <input type="radio" name="hobbie" id="videojuegos"><label for="videojuegos">Jugar
+                    videojuegos</label>
+                <input type="radio" name="hobbie" id="cine"><label for="cine">Ir al cine</label>
+                <input type="radio" name="hobbie" id="ejercicio"><label for="ejercicio">Hacer ejercicio</label>
+                <input type="radio" name="hobbie" id="dibujar"><label for="dibujar">Dibujar</label>
+            </section>
+            <section>
+                <h2>Fecha</h2>
+                <label for="fecha">Selecciona una fecha </label><input type="date" name="fecha" id="fecha"
+                    max="2023-09-06">
+            </section>
+            <section>
+                <h2>Seleccionar colores</h2>
+                <label for="color">Color</label>
+                <input type="color" name="" id="color" value="#ff5fff">
+            </section>
+
+            <hr>
+            <br>
+            <section>
+                <h2>Seleccionar numero</h2>
+                <label for="numero">Numero</label><input type="number" name="numero" id="numero" min="1" max="20">
+            </section>
+            <hr><br>
+            <section>
+                <label for="archivo">Subir archivo</label>
+                <input type="file" name="archivo" id="archivo">
+            </section>
+            <hr>
+            <br>
+            <section>
+                <h2>Seleccionar semestre</h2>
+                <label for="semestre">Selecciona tu semestre</label>
+                <select name="semestre" id="semestre">
+                    <option value="uno">UNO</option>
+                    <option value="dos">DOS</option>
+                    <option value="tres">TRES</option>
+                    <option value="cuatro">CUATRO</option>
+                    <option value="cinco">CINCO</option>
+
+                </select>
+                
+            </section>
+            <hr><br>
+            <section>
+                <label for="rango">Rango</label>
+                <input type="range" name="rango" id="rango" max="10" min="1" value="5">
+            </section>
+            <hr><br>
+            <section>
+                <label for="comentarios">Caja de comentarios</label>
+                <textarea name="comentarios" id="comentarios" cols="10" rows="10"></textarea>
+            </section>
+            <hr>
+            <br>
+            <section>
+                <label for="placa">PLACA</label>
+                <input type="text" id="placa" name="placa" pattern="[A-Z]{3}-[0-9]{2}-[A-Z]"
+                placeholder="AAA-99-A">
+            </section>
+
+            <hr>
+            <br>
+            <input type="submit" value="ENVIAR" id="enviar"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            <input type="reset" value="LIMPIAR" id="limpiar"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            
+            <button type="submit" value="PROCESAR" id="procesar">Procesar</button>
+        </form>
+    </section>
+</body>
+
+</html>
