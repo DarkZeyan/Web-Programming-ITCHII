@@ -1,0 +1,40 @@
+html{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1,h3{
+    text-align: center;
+}
+
+a{
+    margin: 10px;
+    color: aqua;
+}
+header{
+    padding: 20px;
+    background-color: aquamarine;
+}
+nav>.vinculos{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    
+}
+p + div{
+    background-color: darkcyan;
+    padding:10px;
+    border-radius: 5px;
+    border: 2px dashed black;
+}
+p ~ p {
+    color: white;
+}
+
+main>div>*{
+    text-align: center;
+}

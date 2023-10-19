@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        html {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        header {
+            background-color: rgb(49, 255, 101);
+            padding: 1.5rem;
+        }
+
+        nav {
+            background-color: rgb(39, 194, 78);
+            padding: 1.2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navegacion-child {
+            margin: 0 2rem;
+            display: inline-block;
+            padding: 0.2rem;
+        }
+
+        .navegacion-child>a {
+            text-decoration: none;
+            text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+                1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+            color: white;
+        }
+
+        .navegacion-child>a:hover {
+            text-decoration: none;
+            transition: 250ms ease-out;
+            text-shadow: 2px 5px 2px #000;
+            color: white;
+        }
+
+        .page-title {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+                1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+        }
+
+        button {
+            color: white;
+            background-color: limegreen;
+            padding: 0.6rem;
+            text-align: center
+        }
+
+        .input-box {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(12, 139, 44);
+            min-width: 30%;
+            min-height: 10%;
+            padding: 4rem;
+            border: 2px solid black;
+            border-radius: 40px;
+            box-shadow: 2px 10px 30px black;
+        }
+
+        .input-box>div.form {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem;
+
+        }
+
+        input {
+            border: 2px solid black;
+            margin-left: 1.4rem;
+            width: 200px;
+        }
+
+        .submit-btn {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Codigo para el procesamiento del mensaje. */
+        #ms {
+            background-color: silver;
+            border: none;
+            box-shadow: 2px 2px 20px black inset;
+            border-radius: 10px;
+        }
+
+        #msg_titulo {
+            color: silver;
+            background-color: black;
+            box-shadow: 2px 2px 20px silver inset;
+            margin: 0 auto;
+            text-align: center;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        #msg_cuerpo {
+            text-align: justify;
+        }
+
+        #cerrar {
+            display: block;
+            margin: 5px auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load', () => {
+
+
+            const calcularIMC = (estatura, peso) => {
+                return peso / Math.pow(estatura, 2);
+            }
+
+
+
+            // let mensaje = document.getElementById('ms');
+            let obj_btn1 = document.getElementById('abrir');
+
+
+            obj_btn1.addEventListener('click', () => {
+
+                let peso = parseFloat(document.getElementById('peso').value);
+                let estatura = parseFloat(document.getElementById('estatura').value);
+
+                if (Number.isNaN(peso) && Number.isNaN(estatura)) {
+                    alert('Los datos capturados peso y/o estatura no son numericos')
+                } else {
+                    console.log(estatura);
+                    console.log(peso);
+                    console.log('IMC ES:', calcularIMC(estatura, peso));
+
+                }
+
+
+
+                // mensaje.showModal();
+            })
+
+            // let obj_cerrar = document.getElementById('cerrar');
+            // obj_cerrar.addEventListener('click', () => {
+            //     mensaje.close();
+            // })
+        })
+    </script>
+
+    <title>Practica innerText - Jorge Escobar</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="page-title">Calculadora de IMC</h1>
+    </header>
+    <nav>
+        <div class="navegacion-child"><a href="">¿Cómo se calcula el IMC?</a></div>
+        <div class="navegacion-child"><a href="">¿Qué es el IMC?</a></div>
+    </nav>
+
+    <section>
+        <div class="input-box">
+            <div>
+                <h3 class="page-title" style="margin-top: -1.5rem;">
+                    Captura tus datos
+                </h3>
+            </div>
+            <div class="form">
+                <label for="peso" class="page-title">Peso en kilogramos</label>
+                <input type="text" name="peso" id="peso">
+
+            </div>
+            <div class="form">
+                <label for="estatura" class="page-title">Estatura en metros</label>
+                <input type="text" name="estatura" id="estatura">
+            </div>
+
+            <section class="submit-btn">
+                <button id="abrir">
+                    Calcular IMC
+                </button>
+            </section>
+        </div>
+    </section>
+</body>
+
+</html>
