@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: rgba(20, 20, 20, 0.9);
+        }
+
+        header {
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
+
+        
+
+        .header-text {
+            font-size: 36px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .post {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .post h2 {
+            margin-top: 0;
+        }
+
+        .gradient {
+            width: 100%;
+            height: 200px;
+        }
+
+        .gradient.linear {
+            background: linear-gradient(to right, #ff8a00, #e52e71);
+        }
+
+        .gradient.radial {
+            background: radial-gradient(circle, #3e50b4, #5bc0de);
+        }
+
+        .gradient.conic {
+            background: conic-gradient(from 45deg, #00aaff, #ff8a00, #e52e71, #3e50b4, #3e50b4, #00aaff);
+        }
+    </style>
+    <title>Gradients en CSS</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="header-text">Explorando Gradients en CSS</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="post">
+            <h2>Gradient Lineal</h2>
+            <div class="gradient linear"></div>
+            <p>Este es un ejemplo de un gradiente lineal en CSS.</p>
+        </div>
+
+        <div class="post">
+            <h2>Gradient Radial</h2>
+            <div class="gradient radial"></div>
+            <p>Este es un ejemplo de un gradiente radial en CSS.</p>
+        </div>
+
+        <div class="post">
+            <h2>Gradient Cónico</h2>
+            <div class="gradient conic"></div>
+            <p>Este es un ejemplo de un gradiente cónico en CSS.</p>
+        </div>
+    </div>
+</body>
+
+</html>

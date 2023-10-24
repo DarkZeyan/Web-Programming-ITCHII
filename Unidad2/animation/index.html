@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones CSS</title>
+    <style>
+        html {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+
+        /* Definición de la animación de rotación */
+        @keyframes rotar {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Estilo del elemento con la animación de rotación */
+        .rotating-box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+            margin:auto;
+            animation: rotar 2s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        /* Definición de la animación de escala */
+        @keyframes escalar {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Estilo del elemento con la animación de escala */
+        .scaling-box {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: relative;
+            margin:auto;
+            animation: escalar 1.5s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        /* Definición de la animación de opacidad */
+        @keyframes opacidad {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Estilo del elemento con la animación de opacidad */
+        .fading-box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin:auto;
+            position: relative;
+            animation: opacidad 1s linear infinite alternate;
+        }
+
+        @keyframes cambiar-color {
+            0% {
+                background-color: red;
+            }
+
+            25% {
+                background-color: blue;
+            }
+
+            50% {
+                background-color: green;
+            }
+
+            75% {
+                background-color: yellow;
+            }
+
+            100% {
+                background-color: red;
+            }
+        }
+
+        /* Estilo de la caja con la animación de cambio de color */
+        .color-changing-box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            margin:auto;
+            animation: cambiar-color 2s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Rotacion con animation
+    </h1>
+    <!-- Elemento que rota de forma animada -->
+    <div class="rotating-box"></div>
+
+    <h1>
+        Cambio de tamaño con animation
+    </h1>
+    <!-- Elemento que cambia de tamaño de forma animada -->
+    <div class="scaling-box"></div>
+
+    <h1>
+        Opacidad con animation
+    </h1>
+    <!-- Elemento que cambia de opacidad de forma animada -->
+    <div class="fading-box"></div>
+
+    <h1>
+        Cambio de colores
+    </h1>
+    <!-- Caja que cambia de color de forma animada -->
+    <div class="color-changing-box"></div>
+</body>
+
+</html>

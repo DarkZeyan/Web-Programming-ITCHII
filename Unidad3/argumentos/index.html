@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arguments</title>
+    <script>
+        /*
+
+            El argumento de una funcion se mantiene en un
+            objeto similar a un arreglo.
+            Dentro de una funcion, puedes abordar los argumentos que se le pasan
+            de la siguiente manera:
+
+            arguments[i]; La posicion al igual que los arreglos inicia en 0.
+            El numero total de argumentos se indica mediante la propiedad arguments.length
+
+        */
+
+        function concatenar(separador){
+            var resultado = '';
+            for (let i = 0; i < arguments.length; i++) {
+                resultado+= arguments[i]+separador;
+            }
+            var num_char = resultado.length;
+            resultado = resultado.substring(0,num_char-2);
+            return resultado;
+        }
+
+        var colores = concatenar(', ', 'Rojo', 'Naranja', 'Azul');
+        var animales = concatenar('; ', 'Elefante', 'Jirafa', 'Leon', 'Leopardo');
+        var especias  = concatenar('. ', 'Savila', 'Albacar', 'Oregano', 'Pimienta', 'Perejil');
+
+        console.log(colores);
+        console.log(animales);
+        console.log(especias);
+
+        function suma(){
+            var resultado = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                resultado += arguments[i];
+            }
+            return resultado;
+        }
+
+        var suma1 = suma(3,6,9);
+        var suma2 = suma(5,5,5,5,5,5);
+        var suma3 = suma(10,10);
+        var suma4 = suma(100,100,100,100,100,100,100);
+
+        console.log('Suma 1: '+suma1);
+        console.log('Suma 2: '+suma2);
+        console.log('Suma 3: '+suma3);
+        console.log('Suma 4: '+suma4);
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Objeto arguments</h1>
+    </header>
+</body>
+</html>

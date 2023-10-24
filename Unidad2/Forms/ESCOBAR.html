@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Contact Form</title>
+    <style>
+        /* Coloca el color azul en el 
+    placeholder de cada elemento input */
+        ::-webkit-input-placeholder {
+            color: blue;
+        }
+
+        /* Elimina el contorno/borde 
+    de los elementos input */
+        *:focus {
+            outline: none;
+        }
+
+
+        /* Estilo para el cuerpo de la página */
+        body {
+
+            font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+            /* Establece conjunto de fuentes y el tamaño del texto */
+        }
+
+        /* Estilo para los elementos h2 que tengan la clase
+     .contact_form y tambien para elementos label que tengan la clase .contact_form */
+        .contact_form h2,
+        .contact_form label {
+            font-family: Georgia, Times, "Times New Roman", serif;
+            /* Establecer el conjunto de fuentes para el texto */
+        }
+
+        /* Estilo para elementos .form_hint & .required_notification */
+        .form_hint,
+        .required_notification {
+            font-size: 11px;
+            /* Tamaño de fuente de 11 píxeles */
+        }
+
+        /* Estilo para elementos ul que tengan la clase .contact_form */
+        .contact_form ul {
+            width: 750px;
+            /* Establece el ancho de la lista en 750px */
+            list-style-type: none;
+            /* Elimina los marcadores de lista */
+            list-style-position: outside;
+            /* Coloca los marcadores de lista fuera del área de contenido */
+            margin: 0px;
+            /* Elimina el margen exterior de la lista */
+            padding: 0px;
+            /* Elimina el relleno interno de la lista */
+        }
+
+        /* Estilo para elementos li que tengan la clase .contact_form */
+        .contact_form li {
+            padding: 12px;
+            /* Añade un espacio de 12px alrededor de cada elemento de la lista */
+            border-bottom: 1px solid #eee;
+            /* Agrega un borde inferior de 1px sólido con color gris claro (#eee) */
+            position: relative;
+            /* Establece la posición relativa para permitir el posicionamiento de elementos secundarios */
+        }
+
+        /* Estilo de borde inferior para el primer y último elemento de la lista en el formulario de contacto */
+        .contact_form li:first-child,
+        .contact_form li:last-child {
+            border-bottom: 1px solid #777;
+            /* Agrega un borde inferior de 1px sólido con color #777 */
+        }
+
+        /* Estilo para los títulos h2 dentro del formulario de contacto */
+        .contact_form h2 {
+            margin: 0;
+            /* Elimina el margen vertical del título h2 */
+            display: inline;
+            /* Cambia la visualización del título h2 a en línea (sin salto de línea) */
+        }
+
+        /* Estilo para las notificaciones requeridas en el formulario */
+        .required_notification {
+            color: #d45252;
+            /* Cambia el color del texto a #d45252 (rojo oscuro) */
+            margin: 5px 0 0 0;
+            /* Establece márgenes superiores, derecho, inferior e izquierdo a 5px, 0, 0, 0 respectivamente */
+            display: inline;
+            /* Cambia la visualización de la notificación a en línea (sin salto de línea) */
+            float: right;
+            /* Hace que la notificación flote hacia la derecha del elemento contenedor */
+        }
+
+        /* Estilo para las etiquetas de formulario en el formulario de contacto */
+        .contact_form label {
+            width: 150px;
+            /* Establece un ancho fijo de 150px para las etiquetas */
+            margin-top: 3px;
+            /* Añade un margen superior de 3px a las etiquetas */
+            display: inline-block;
+            /* Cambia la visualización de las etiquetas a en línea en bloque */
+            float: left;
+            /* Hace que las etiquetas floten hacia la izquierda */
+            padding: 3px;
+            /* Agrega un espacio interior de 3px alrededor de las etiquetas */
+        }
+
+        /* Estilo para los campos de entrada de formulario en el formulario de contacto */
+        .contact_form input {
+            height: 20px;
+            /* Establece la altura de los campos de entrada en 20px */
+            width: 220px;
+            /* Establece un ancho fijo de 220px para los campos de entrada */
+            padding: 5px 8px;
+            /* Agrega espacio interior de 5px arriba/abajo y 8px izquierda/derecha a los campos de entrada */
+        }
+
+        /* Estilo para el campo de texto en el formulario de contacto */
+        .contact_form textarea {
+            padding: 8px;
+            /* Agrega espacio interior de 8px alrededor del campo de texto */
+            width: 300px;
+            /* Establece un ancho fijo de 300px para el campo de texto */
+        }
+
+        /* Estilo para el botón de envío en el formulario de contacto */
+        .contact_form button {
+            margin-left: 156px;
+            /* Agrega un margen izquierdo de 156px al botón de envío */
+        }
+
+        /* Estilo para campos de entrada y campos de texto en el formulario de contacto */
+        .contact_form input,
+        .contact_form textarea {
+            border: 1px solid #aaa;
+            /* Agrega un borde de 1px de tipo sólido con color #aaa */
+            box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+            /* Agrega sombras alrededor del elemento */
+            border-radius: 2px;
+            /* Agrega bordes redondeados */
+        }
+
+        /* Estilo para campos de entrada y campos de texto enfocados */
+        .contact_form input:focus,
+        .contact_form textarea:focus {
+            background: #fff;
+            /* Cambia el fondo a blanco */
+            border: 1px solid #555;
+            /* Cambia el borde a 1px sólido con color #555 */
+            box-shadow: 0 0 3px #aaa;
+            /* Agrega una sombra cuando el elemento está enfocado */
+        }
+
+        /* Estilo para el botón de envío del formulario */
+        button.submit {
+            background-color: #68b12f;  /* Establece el color de fondo */
+            /* Agrega gradientes de fondo para navegadores diferentes */
+            background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+            background: -webkit-linear-gradient(top, #68b12f, #50911e);
+            background: -moz-linear-gradient(top, #68b12f, #50911e);
+            background: -ms-linear-gradient(top, #68b12f, #50911e);
+            background: -o-linear-gradient(top, #68b12f, #50911e);
+            background: linear-gradient(top, #68b12f, #50911e);
+            border: 1px solid #509111;
+            /* Establece el borde del botón */
+            border-bottom: 1px solid #5b992b;
+            /* Agrega un borde inferior más oscuro */
+            border-radius: 3px;
+            /* Agrega bordes redondeados */
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            -o-border-radius: 3px;
+            box-shadow: inset 0 1px 0 0 #9fd574;
+            /* Agrega una sombra interna */
+            -webkit-box-shadow: 0 1px 0 0 #9fd574 inset;
+            -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+            -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+            -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+            color: white;
+            /* Establece el color del texto en blanco */
+            font-weight: bold;
+            /* Hace el texto en negrita */
+            padding: 6px 20px;
+            /* Agrega relleno al botón */
+            text-align: center;
+            /* Centra el texto en el botón */
+            text-shadow: 0 -1px 0 #396715;
+            /* Agrega una sombra al texto */
+        }
+
+        /* Estilo para el botón de envío cuando se pasa el mouse sobre él */
+        button.submit:hover {
+            opacity: 0.85;
+            /* Reduce la opacidad del botón al pasar el mouse sobre él */
+            cursor: pointer;
+            /* Cambia el dibujo del cursor a una mano */
+        }
+
+        /* Estilo para el botón de envío cuando se hace clic en él */
+        button.submit:active {
+            border: 1px solid #20911e;
+            /* Cambia el borde al hacer clic */
+            box-shadow: 0 0 10px 5px #356b0b inset;
+            /* Agrega una sombra interna al hacer clic */
+            -webkit-box-shadow: 0 0 10px 5px #356b0b inset;
+            -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+            -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+            -o-box-shadow: 0 0 10px 5px #356b0b inset;
+        }
+
+        /* Estilo para campos de entrada y campos de texto en el formulario de contacto */
+        .contact_form input,
+        .contact_form textarea {
+            padding-right: 30px;
+            /* Agrega espacio de relleno a la derecha de los campos de entrada y campos de texto */
+        }
+
+        /* Estilo para campos de entrada y campos de texto que son requeridos */
+        input:required,
+        textarea:required {
+            /* Agrega una imagen de un asterisco rojo como fondo, posicionado a la derecha y centrado verticalmente */
+            background: #fff url(images/red_asterisk.png) no-repeat 98% center;
+            /* Cambia el fondo para indicar campos requeridos */
+        }
+
+        /* Estilo para los mensajes de burbujas de validación en navegadores Webkit */
+        ::-webkit-validation-bubble-message {
+            padding: 1em;
+            /* Agrega un espacio de relleno de 1em alrededor del mensaje de la burbuja de validación */
+        }
+
+        /* Estilo para campos de entrada y campos de texto en el formulario de contacto cuando están enfocados y son inválidos */
+        .contact_form input:focus:invalid,
+        .contact_form textarea:focus:invalid {
+            /* Cambia el fondo y agrega una imagen para indicar que el campo es inválido */
+            background: #fff url(images/invalid.png) no-repeat 98% center;
+
+            /* Agrega una sombra alrededor del campo */
+            box-shadow: 0 0 5px #d45252;
+
+            /* Cambia el color del borde del campo */
+            border-color: #b03535;
+        }
+
+        /* Estilo para campos de entrada y campos de texto en el formulario de contacto cuando son requeridos y válidos */
+        .contact_form input:required:valid,
+        .contact_form textarea:required:valid {
+            /* Cambia el fondo y agrega una imagen para indicar que el campo es válido */
+            background: #fff url(images/valid.png) no-repeat 98% center;
+
+            /* Agrega una sombra alrededor del campo */
+            box-shadow: 0 0 5px #5cd053;
+
+            /* Cambia el color del borde del campo */
+            border-color: #28921f;
+        }
+
+        /* Estilo para las pistas de formulario (form hints) */
+        .form_hint {
+            background: #d45252;
+            /* Cambia el color de fondo a #d45252 */
+            border-radius: 3px 3px 3px 3px;
+            /* Agrega bordes redondeados */
+            color: white;
+            /* Cambia el color del texto a blanco */
+            margin-left: 8px;
+            /* Agrega un margen a la izquierda de 8px */
+            padding: 1px 6px;
+            /* Agrega espacio interior de 1px arriba/abajo y 6px izquierda/derecha */
+            z-index: 999;
+            /* Establece la superposición para que las pistas estén por encima de todos los demás elementos */
+            position: absolute;
+            /* Permite un formato adecuado si la pista ocupa dos líneas */
+            display: none;
+            /* Inicialmente, oculta la pista de formulario */
+        }
+
+        /* Estilo para el pseudo-elemento ::before de las pistas de formulario (form hints) */
+        .form_hint::before {
+            content: "\25C0";
+            /* Agrega un símbolo de triángulo apuntando hacia la izquierda en formato Unicode escapado */
+            color: #d45252;
+            /* Cambia el color del símbolo a #d45252*/
+            position: absolute;
+            /* Establece la posición absoluta para el símbolo */
+            top: 1px;
+            /* Alinea el símbolo 1px desde la parte superior */
+            left: -6px;
+            /* Alinea el símbolo 6px hacia la izquierda del elemento principal */
+        }
+
+        /* Mostrar la pista de formulario cuando el campo de entrada está enfocado */
+        .contact_form input:focus+.form_hint {
+            display: inline;
+            /* Cambia la visualización de la pista de formulario a en línea cuando el campo está enfocado */
+        }
+
+        /* Cambiar el color de fondo de la pista de formulario cuando el campo es requerido y válido */
+        .contact_form input:required:valid+.form_hint {
+            background: #28921f;
+            /* Cambia el color de fondo de la pista a #28921f (verde oscuro) cuando el campo es válido */
+        }
+
+        /* Cambiar el color de la flecha de la pista de formulario cuando el campo es requerido y válido */
+        .contact_form input:required:valid+.form_hint::before {
+            color: #28921f;
+            /* Cambia el color de la flecha de la pista a #28921f (verde oscuro) cuando el campo es válido */
+        }
+    </style>
+</head>
+
+<body>
+    <form class="contact_form" action="" method="post" name="contact_form" novalidate>
+        <ul>
+            <li>
+                <h2>Contact Us</h2>
+                <span class="required_notification">* Denotes Required Field</span>
+            </li>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" name="name" placeholder="John Doe" required />
+            </li>
+            <li>
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="john_doe@example.com" required />
+                <span class="form_hint">Proper format "name@something.com"</span>
+            </li>
+            <li>
+                <label for="website">Website:</label>
+                <input type="url" name="website" placeholder="http://johndoe.com/" required
+                    pattern="(http|https)://.+" />
+                <span class="form_hint">Proper format "https://someaddress.com"</span>
+            </li>
+            <li>
+                <label for="message">Message:</label>
+                <textarea name="message" cols="40" rows="6" required></textarea>
+            </li>
+            <li>
+                <button class="submit" type="submit">Submit Form</button>
+            </li>
+        </ul>
+    </form>
+</body>
+
+</html>

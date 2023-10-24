@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function operaciones() {
+            var resultado = '';
+
+            for (let i = 0; i < arguments.length; i++) {
+                resultado += arguments[i];
+            }
+            console.log("Cadena antes de ser evaluada " + resultado);
+            resultado = window.eval(resultado);
+        }
+
+        var r1 = operaciones(5, "+", 7, "+", 3);
+        var r2 = operaciones(10, "-", 3, "+", 3);
+        var r3 = operaciones(10, "+", 5, "*", 5);
+
+        console.log("r1 = " + r1);
+        console.log("r2 = " + r2);
+        console.log("r3 = " + r3);
+
+    </script>
+    <title>Argumentos 2</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
