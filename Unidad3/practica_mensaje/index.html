@@ -93,32 +93,21 @@
         }
 
         /* Codigo para el procesamiento del mensaje. */
-        #ms {
-            background-color: silver;
-            border: none;
-            box-shadow: 2px 2px 20px black inset;
-            border-radius: 10px;
-        }
-
-        #msg_titulo {
-            color: silver;
-            background-color: black;
-            box-shadow: 2px 2px 20px silver inset;
-            margin: 0 auto;
-            text-align: center;
-            border-radius: 10px;
-            padding: 5px;
-        }
-
-        #msg_cuerpo {
-            text-align: justify;
-        }
 
         #cerrar {
             display: block;
             margin: 5px auto;
             border-radius: 5px;
             text-align: center;
+        }
+
+        .dataContainer {
+            margin-top: 2rem;
+            background-color: rgb(235, 233, 230);
+            display: flex;
+            flex-direction: column;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
     </style>
 
@@ -132,7 +121,7 @@
 
 
 
-            // let mensaje = document.getElementById('ms');
+            let mensaje = document.getElementById('modal');
             let obj_btn1 = document.getElementById('abrir');
 
 
@@ -144,21 +133,28 @@
                 if (Number.isNaN(peso) && Number.isNaN(estatura)) {
                     alert('Los datos capturados peso y/o estatura no son numericos')
                 } else {
-                    console.log(estatura);
-                    console.log(peso);
-                    console.log('IMC ES:', calcularIMC(estatura, peso));
-
+                    const imc = calcularIMC(estatura, peso);
+                    const clasi = document.getElementById('clasi');
+                    const imcTexto = document.getElementById('imcTexto');
+                    imcTexto.innerText = imc;
+                    if (imc >= 30) {
+                        clasi.textContent = 'Obesidad'
+                    } else if (imc >= 25) {
+                        clasi.innerHTML = 'Sobrepeso'
+                    } else if (imc >= 18.5) {
+                        clasi.innerText = 'Normal'
+                    } else clasi.textContent = 'Normal'
                 }
 
 
 
-                // mensaje.showModal();
+                mensaje.showModal();
             })
 
-            // let obj_cerrar = document.getElementById('cerrar');
-            // obj_cerrar.addEventListener('click', () => {
-            //     mensaje.close();
-            // })
+            let obj_cerrar = document.getElementById('cerrar');
+            obj_cerrar.addEventListener('click', () => {
+                mensaje.close();
+            })
         })
     </script>
 
@@ -198,6 +194,19 @@
             </section>
         </div>
     </section>
+    <dialog class="modal" id="modal">
+        <h2>Resultados</h2>
+        <div class="centeredElement">
+            <p id="totalimc">Su IMC es de: </p>
+            <p id="imcTexto"></p>
+        </div>
+
+        <div class="centeredElement">
+            <p>Se encuentra en la clasificación de: </p>
+            <p id="clasi"></p>
+        </div>
+        <button class="closeBtn" id="cerrar">Cerrar modal</button>
+    </dialog>
 </body>
 
 </html>
