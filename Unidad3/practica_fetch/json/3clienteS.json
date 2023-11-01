@@ -1,0 +1,27 @@
+{
+    "clientes":[
+    {
+        "id":"1",
+        "nombre" : "HECTOR",
+        "tienda" : "1",
+        "direccion" : 3,
+        "estatus" : 1
+    },
+    {
+        "id":"2",
+        "nombre" : "LUIS",
+        "tienda" : "1",
+        "direccion" : 3,
+        "estatus" : 1
+    },
+    {
+        "id":"3",
+        "nombre" : "VICTOR",
+        "tienda" : "1",
+        "direccion" : 3,
+        "estatus" : 1
+    }
+    ]
+}
+
+

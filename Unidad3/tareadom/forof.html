@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Mascotas</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        th {
+            background-color: aqua;
+        }
+
+        tr>td:first-of-type {
+            background-color: aquamarine;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+        }
+        table{
+            background-color: rgb(100, 200, 200);
+            border: 4px solid red;
+        }
+        tr,td,th{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Ejercicio Tabla Dinamica
+    </h1>
+    <h3>Jorge Eduardo Escobar Bugarini - ISC - 21550317 - PW 10</h3>
+    <div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mascota</th>
+                    <th>Nombre</th>
+                    <th>Color</th>
+                    <th>Sexo</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-mascotas">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let mascotas = [
+            { mascota: "Perrito", nombre: "KIRA", color: "NEGRO", sexo: "HEMBRA", edad: 4 },
+            { mascota: "Perrito", nombre: "BRAULIO", color: "CAFE", sexo: "MACHO", edad: 6 },
+            { mascota: "Gato", nombre: "Felino", color: "BLANCO", sexo: "MACHO", edad: 3 },
+            { mascota: "Elefante", nombre: "GRANDE", color: "CAFE", sexo: "HEMBRA", edad: 30 }
+        ];
+
+        const tablaMascotas = document.getElementById("tabla-mascotas");
+
+        for (const mascota of mascotas) {
+            const fila = document.createElement("tr");
+            const mascotaData = Object.values(mascota);
+
+            for (const dato of mascotaData) {
+                const celda = document.createElement("td");
+                celda.textContent = dato;
+                fila.appendChild(celda);
+            }
+
+            tablaMascotas.appendChild(fila);
+        }
+    </script>
+</body>
+
+</html>

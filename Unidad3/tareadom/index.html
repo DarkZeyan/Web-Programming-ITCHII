@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html{
+            font-family: sans-serif;
+        }
+    </style>
+    <title>Ciudades y estados</title>
+</head>
+
+<body>
+    <h1>
+        Estados de Mexico y Ciudades
+    </h1>
+    <h2>
+        Jorge Eduardo Escobar Bugarini - ISC - 21550317 - PW 10
+    </h2>
+    <script>
+
+
+        const listado = document.createElement('ul');
+        listado.setAttribute('id', 'estados');
+
+        const chihuahua = document.createElement('li');
+        chihuahua.appendChild(document.createTextNode('Chihuahua'));
+        const jalisco = document.createElement('li');
+        jalisco.appendChild(document.createTextNode('Jalisco'));
+        const bajaCalifornia = document.createElement('li');
+        bajaCalifornia.appendChild(document.createTextNode('Baja California'));
+
+        const listadoCiudadesCh = document.createElement('ul');
+        const listadoCiudadesJal = document.createElement('ul');
+        const listadoCiudadesBC = document.createElement('ul');
+
+        const ciudadesCh = ['Chihuahua', 'Ciudad Juarez'];
+        const ciudadesJal = ['Guadalajara', 'Puerto Vallarta'];
+        const ciudadesBC = ['Tijuana', 'Mexicali'];
+
+        ciudadesCh.forEach((ciudad) => {
+            const ciudadLi = document.createElement('li');
+            const txtCiudad = document.createTextNode(ciudad);
+            ciudadLi.appendChild(txtCiudad);
+            listadoCiudadesCh.appendChild(ciudadLi);
+        });
+        ciudadesJal.forEach((ciudad) => {
+            const ciudadLi = document.createElement('li');
+            const txtCiudad = document.createTextNode(ciudad);
+            ciudadLi.appendChild(txtCiudad);
+            listadoCiudadesJal.appendChild(ciudadLi);
+        });
+        ciudadesBC.forEach((ciudad) => {
+            const ciudadLi = document.createElement('li');
+            const txtCiudad = document.createTextNode(ciudad);
+            ciudadLi.appendChild(txtCiudad);
+            listadoCiudadesBC.appendChild(ciudadLi);
+        });
+
+        chihuahua.appendChild(listadoCiudadesCh);
+        jalisco.appendChild(listadoCiudadesJal);
+        bajaCalifornia.appendChild(listadoCiudadesBC);
+
+        listado.appendChild(chihuahua);
+        listado.appendChild(jalisco);
+        listado.appendChild(bajaCalifornia);
+
+        const body = document.getElementsByTagName('body')[0];
+        body.appendChild(listado);
+
+
+    </script>
+</body>
+
+</html>

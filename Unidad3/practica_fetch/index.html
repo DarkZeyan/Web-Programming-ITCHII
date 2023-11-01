@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        tr,
+        td {
+            padding: 0.5rem;
+        }
+    </style>
+
+    <script>
+        let url = './clientes.js';
+        let data = [];
+        let pageSize = 10; // Número de renglones por página
+        let currentPage = 1;
+        // Inicialmente, deshabilitar los botones de navegación
+        window.addEventListener('load', () => {
+            document.getElementById('firstPage').disabled = true;
+            document.getElementById('prevPage').disabled = true;
+            document.getElementById('nextPage').disabled = true;
+            document.getElementById('lastPage').disabled = true;
+        })
+        function loadData() {
+            document.getElementById('firstPage').disabled = false;
+            document.getElementById('prevPage').disabled = false;
+            document.getElementById('nextPage').disabled = false;
+            document.getElementById('lastPage').disabled = false;
+            const pageSizeInput = document.getElementById('dataLength');
+            pageSize = parseInt(pageSizeInput.value);
+
+            fetch(url)
+                .then(response => response.json())
+                .then(datos => {
+                    data = datos;
+                    renderTable(currentPage);
+                })
+                .catch(error => {
+                    console.log(error);
+                    alert('Ha sucedido un error obteniendo los datos')
+                })
+        }
+
+
+        // Función para renderizar la tabla
+        function renderTable(page) {
+            const tableBody = document.getElementById('dataTable');
+            tableBody.innerHTML = '';
+
+            const start = (page - 1) * pageSize;
+            const end = start + pageSize;
+            const pageData = data.slice(start, end);
+
+            pageData.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td>${item.customer_id}</td>
+            <td>${item.first_name}  ${item.last_name}</td>
+            <td>${item.store_id}</td>
+            <td>${item.address_id}</td>
+            <td>${item.email}</td>
+            <td>${item.active}</td>
+        `;
+                tableBody.appendChild(row);
+            });
+
+            updatePageInfo(start + 1, end, data.length);
+
+
+        }
+
+        // Función para actualizar la información de la página
+        function updatePageInfo(start, end, total) {
+            const pageInfo = document.getElementById('pageInfo');
+            pageInfo.textContent = `Mostrando ${start} - ${end > total ? total: end} de ${total} registros`;
+        }
+
+        // Función para navegar entre páginas
+        function goToPage(direction) {
+
+            if (direction === 0) {
+                currentPage = Math.ceil(data.length / pageSize);
+            } else if (direction === -1 && currentPage > 1) {
+                currentPage--;
+            } else if (direction === 1 && currentPage < Math.ceil(data.length / pageSize)) {
+                currentPage++;
+            } else if (direction === -2 && currentPage > 1) {
+                currentPage = 1;
+            }
+
+            renderTable(currentPage);
+        }
+
+
+
+
+    </script>
+
+    <title>Tabla dinamica Fetch</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Tabla dinamica con Fetch API y recurso JSON</h1>
+    <div style="display: flex; justify-content: center; margin-bottom: 1rem;">
+        <label for="dataLength">Cantidad de datos</label>
+        <input type="text" id="dataLength">
+        <button onclick="loadData()">Cargar Registros</button>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Cliente</th>
+                    <th>Nombre completo</th>
+                    <th>ID Tienda</th>
+                    <th>ID Direccion</th>
+                    <th>Correo electronico</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody id="dataTable"></tbody>
+        </table>
+    </div>
+    <div id="pagination" style=" display: flex; justify-content: center; margin-top: 1rem;">
+        <span>Página:</span>
+        <button id="firstPage" onclick="goToPage(-2)">Primero</button>
+        <button id="prevPage" onclick="goToPage(-1)">Anterior</button>
+        <span id="pageInfo"></span>
+        <button id="nextPage" onclick="goToPage(1)">Siguiente</button>
+        <button id="lastPage" onclick="goToPage(0)">Último</button>
+    </div>
+
+</body>
+
+</html>

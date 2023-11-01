@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider de Carrusel</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s;
+        }
+
+        .carousel-images img {
+            width: 800px;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .carousel-button:hover {
+            opacity: 1;
+        }
+
+        .carousel-button.prev {
+            left: 0;
+        }
+
+        .carousel-button.next {
+            right: 0;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load', () => {
+            const images = document.querySelector(".carousel-images");
+            const prevButton = document.querySelector(".prev");
+            const nextButton = document.querySelector(".next");
+            let currentIndex = 0;
+
+            const showButtons = () => {
+                prevButton.style.opacity = 1;
+                nextButton.style.opacity = 1;
+            };
+
+            const hideButtons = () => {
+                prevButton.style.opacity = 0;
+                nextButton.style.opacity = 0;
+            };
+
+            const slideTo = (index) => {
+                currentIndex = index;
+                const offset = -currentIndex * 800;
+                images.style.transform = `translateX(${offset}px)`;
+                if (currentIndex > 2) {
+                    currentIndex = 0;
+                    setTimeout(() => {
+                        images.style.transition = "none";
+                        images.style.transform = "translateX(0)";
+                        setTimeout(() => {
+                            images.style.transition = "transform 0.5s";
+                        });
+                    }, 500);
+                }
+            };
+
+            prevButton.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    slideTo(currentIndex - 1);
+                }
+            });
+
+            nextButton.addEventListener("click", () => {
+                if (currentIndex < 2) {
+                    slideTo(currentIndex + 1);
+                }
+            });
+
+            let autoAdvanceTimeout;
+
+            const autoAdvance = () => {
+                autoAdvanceTimeout = setTimeout(() => {
+                    if (currentIndex < 2) {
+                        slideTo(currentIndex + 1);
+                    } else {
+                        slideTo(0);
+                    }
+                    autoAdvance();
+                }, 5000);
+            };
+
+            images.addEventListener("mouseover", () => {
+                showButtons();
+                clearTimeout(autoAdvanceTimeout);
+            });
+
+            images.addEventListener("mouseout", () => {
+                hideButtons();
+                autoAdvance();
+            });
+
+            autoAdvance();
+        })
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Ejemplo de carrusel - Slider
+        </h1>
+    </header>
+    <div class="carousel-container">
+        <div class="carousel-images">
+            <a href="doc1.html"><img src="img/img1.png" alt="Imagen 1"></a>
+            <a href="doc2.html"><img src="img/img2.png" alt="Imagen 2"></a>
+            <a href="doc3.html"><img src="img/img3.png" alt="Imagen 3"></a>
+        </div>
+        <div class="carousel-button prev">◄</div>
+        <div class="carousel-button next">►</div>
+    </div>
+
+</body>
+
+</html>
